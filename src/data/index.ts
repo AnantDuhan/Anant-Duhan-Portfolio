@@ -7,7 +7,7 @@ export const NAV_LINKS = [
 ]
 
 export const STATS = [
-  { value: '1.5+', label: 'Years experience' },
+  { value: '2.5+', label: 'Years experience' },
   { value: '1',    label: 'npm package' },
   { value: '44',   label: 'Tests passing' },
   { value: '5+',   label: 'Production systems' },
@@ -33,15 +33,14 @@ export const PROJECTS = [
       { label: 'npm',    href: 'https://npmjs.com/package/@anantduhan/limiter-core' },
     ],
     code: `const limiter = new RateLimiter({
-  rate:    100,
-  window:  '1 minute',
-  burst:   150,
-  backend: 'redis', // ← swap here
-  redisClient: redis,
-});
+      rate:    100,
+      window:  '1 minute',
+      burst:   150,
+      backend: 'redis', // ← swap here
+      redisClient: redis,
+    });
 
-const { allowed } =
-  await limiter.check('user-123');`,
+    const { allowed } = await limiter.check('user-123');`,
   },
   {
     icon: '🔔',
