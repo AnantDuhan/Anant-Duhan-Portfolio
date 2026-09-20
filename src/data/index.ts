@@ -1,69 +1,159 @@
 export const NAV_LINKS = [
   { label: 'About',      href: '#about' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Projects',   href: '#projects' },
   { label: 'Skills',     href: '#skills' },
-  { label: 'Experience', href: '#experience' },
   { label: 'Contact',    href: '#contact' },
 ]
 
 export const STATS = [
   { value: '2.5+', label: 'Years experience' },
-  { value: '1',    label: 'npm package' },
-  { value: '44',   label: 'Tests passing' },
-  { value: '5+',   label: 'Production systems' },
+  { value: '1100+', label: 'LeetCode problems solved' },
+  { value: '2',    label: 'Featured projects' },
+  { value: '3+',   label: 'Production systems' },
 ]
 
 export const ABOUT_CARDS = [
-  { icon: '⚡', title: 'Full-Stack',   desc: 'Angular + React frontends, Node.js APIs, database design' },
-  { icon: '📦', title: 'Open Source', desc: 'Published on npm, production-grade with full test coverage' },
-  { icon: '🔒', title: 'Reliability', desc: 'Atomic operations, clock skew handling, fail-open patterns' },
-  { icon: '🚀', title: 'Shipping',    desc: 'From idea to production — CI/CD, Docker, cloud deployment' },
+  {
+    icon: '⚡',
+    title: 'Backend Engineering',
+    desc: 'Java, Spring Boot, Node.js, REST APIs, microservices and event-driven systems',
+  },
+  {
+    icon: '🌐',
+    title: 'Full-Stack',
+    desc: 'React and Angular applications backed by scalable Node.js and Spring Boot services',
+  },
+  {
+    icon: '🔄',
+    title: 'Distributed Systems',
+    desc: 'Redis, Elasticsearch, Socket.IO, background jobs, caching and distributed rate limiting',
+  },
+  {
+    icon: '🚀',
+    title: 'Production',
+    desc: 'Docker, AWS, GitHub Actions, CI/CD, authentication, monitoring and cloud deployments',
+  },
 ]
 
 export const PROJECTS = [
   {
     featured: true,
-    icon: '📦',
-    badges: [{ label: 'npm', color: 'red' }, { label: 'open source', color: 'green' }, { label: 'v1.0.0', color: 'default' }],
-    name: '@anantduhan/limiter-core',
-    desc: 'Production-grade distributed rate limiter for Node.js. Token bucket and sliding window strategies. Memory in development, Redis in production — one config change. Atomic Lua scripts eliminate race conditions across multiple servers.',
-    tech: ['TypeScript', 'Node.js', 'Redis', 'Lua', 'Express', 'Fastify', 'Jest'],
+    icon: '🛒',
+    badges: [
+      { label: 'featured', color: 'green' },
+      { label: 'live', color: 'default' },
+      { label: 'full-stack', color: 'default' },
+    ],
+    name: 'MAISON — E-Commerce Platform',
+    desc: 'Production-oriented full-stack e-commerce platform covering authentication, TOTP 2FA, product discovery, payments, orders, returns, refunds, real-time updates, Redis caching, Elasticsearch search, background jobs, AWS S3, AI-powered review summaries and administrative analytics.',
+    tech: [
+      'React',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'Redis',
+      'Elasticsearch',
+      'Socket.IO',
+      'Cashfree',
+      'AWS S3',
+      'Gemini AI',
+      'JWT',
+      '2FA',
+      'BullMQ',
+    ],
     links: [
-      { label: 'GitHub', href: 'https://github.com/AnantDuhan/limiter-core' },
-      { label: 'npm',    href: 'https://npmjs.com/package/@anantduhan/limiter-core' },
+      {
+        label: 'Live Demo',
+        href: 'https://maisonorderplanning.in',
+      },
+      {
+        label: 'GitHub',
+        href: 'https://github.com/AnantDuhan/MAISON-Order-Planning',
+      },
+    ],
+    code: `// Real-time order updates
+
+socket.on('orderStatusUpdated', (order) => {
+  dispatch(updateOrder(order));
+});
+
+// Redis-backed infrastructure
+// Elasticsearch product search
+// Cashfree payments
+// TOTP 2FA`,
+  },
+
+  {
+    featured: true,
+    icon: '🛡️',
+    badges: [
+      { label: 'open source', color: 'green' },
+      { label: 'npm coming soon', color: 'default' },
+    ],
+    name: '@anantduhan/limiter-core',
+    desc: 'TypeScript rate-limiting library for Node.js with token-bucket and sliding-window strategies, in-memory and Redis backends, and Express/Fastify integrations. Designed to provide a consistent API across local development and distributed production environments.',
+    tech: [
+      'TypeScript',
+      'Node.js',
+      'Redis',
+      'Lua',
+      'Express',
+      'Fastify',
+    ],
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/AnantDuhan/limiter-core',
+      },
     ],
     code: `const limiter = new RateLimiter({
-      rate:    100,
-      window:  '1 minute',
-      burst:   150,
-      backend: 'redis', // ← swap here
-      redisClient: redis,
-    });
+  rate: 100,
+  window: '1 minute',
+  burst: 150,
+  backend: 'redis',
+  redisClient: redis,
+});
 
-    const { allowed } = await limiter.check('user-123');`,
+const { allowed } =
+  await limiter.check('user-123');`,
   },
+
   {
     icon: '🔔',
-    badges: [{ label: 'Bosch', color: 'yellow' }, { label: 'internal', color: 'default' }],
-    name: 'FossLens — Vulnerability Notifier',
-    desc: 'Automated CVE notification system. Integrates with Dependency-Track to detect vulnerable dependencies and sends SMTP email alerts to engineers.',
-    tech: ['Node.js', 'Angular', 'PostgreSQL', 'SMTP', 'Dependency-Track'],
+    badges: [
+      { label: 'Bosch', color: 'yellow' },
+      { label: 'internal', color: 'default' },
+    ],
+    name: 'FossLens — Vulnerability Automation',
+    desc: 'Automation platform for software vulnerability and compliance workflows, integrating GitHub, Dependency-Track and enterprise services to automate application onboarding, scanning and notification workflows.',
+    tech: [
+      'Node.js',
+      'GitHub Actions',
+      'Dependency-Track',
+      'REST APIs',
+      'YAML',
+      'Automation',
+    ],
     links: [],
   },
+
   {
     icon: '📊',
-    badges: [{ label: 'Bosch', color: 'yellow' }, { label: 'internal', color: 'default' }],
-    name: 'PMT Architecture Reports',
-    desc: 'Full-stack architecture reporting platform. Angular frontend, Node.js API, scheduled batch email reports and automation tooling for hundreds of engineers.',
-    tech: ['Angular', 'Node.js', 'TypeScript', 'PostgreSQL', 'Docker'],
-    links: [],
-  },
-  {
-    icon: '🛒',
-    badges: [{ label: 'side project', color: 'default' }],
-    name: 'Order Planning — E-commerce',
-    desc: 'Full-stack order management with inventory tracking, order lifecycle management, and an analytics dashboard.',
-    tech: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
+    badges: [
+      { label: 'Bosch', color: 'yellow' },
+      { label: 'internal', color: 'default' },
+    ],
+    name: 'PMT Architecture & Reporting Platform',
+    desc: 'Enterprise reporting and automation platform supporting architecture, application lifecycle and compliance-related reporting workflows across internal engineering teams.',
+    tech: [
+      'Angular',
+      'Node.js',
+      'TypeScript',
+      'REST APIs',
+      'Docker',
+      'Automation',
+    ],
     links: [],
   },
 ]
@@ -72,66 +162,118 @@ export const SKILLS = [
   {
     group: 'Languages',
     items: [
-      { name: 'TypeScript',  pct: 90 },
-      { name: 'JavaScript',  pct: 88 },
-      { name: 'Python',      pct: 72 },
-      { name: 'SQL',         pct: 78 },
+      { name: 'Java',       pct: 88 },
+      { name: 'TypeScript', pct: 90 },
+      { name: 'JavaScript', pct: 88 },
+      { name: 'Python',    pct: 70 },
+      { name: 'SQL',       pct: 78 },
     ],
   },
+
   {
-    group: 'Frameworks',
+    group: 'Backend',
     items: [
-      { name: 'Angular',          pct: 85 },
-      { name: 'React',            pct: 80 },
-      { name: 'Node.js',          pct: 88 },
-      { name: 'Express / Fastify', pct: 82 },
+      { name: 'Spring Boot', pct: 85 },
+      { name: 'Node.js',     pct: 90 },
+      { name: 'Express',     pct: 88 },
+      { name: 'REST APIs',   pct: 90 },
+    ],
+  },
+
+  {
+    group: 'Frontend',
+    items: [
+      { name: 'Angular',    pct: 85 },
+      { name: 'React',      pct: 82 },
+      { name: 'TypeScript', pct: 90 },
+      { name: 'Redux',      pct: 78 },
+    ],
+  },
+
+  {
+    group: 'Distributed Systems',
+    items: [
+      { name: 'Redis',         pct: 85 },
+      { name: 'Elasticsearch', pct: 78 },
+      { name: 'Socket.IO',     pct: 82 },
+      { name: 'Docker',        pct: 82 },
     ],
   },
 ]
 
 export const TECH_CHIPS = [
-  'PostgreSQL','MongoDB','Redis','Docker','AWS',
-  'GitHub Actions','Linux','Jest','Webpack',
-  'Tailwind CSS','Next.js','Postman','Lua','Git','CI/CD',
+  'Java',
+  'Spring Boot',
+  'Node.js',
+  'TypeScript',
+  'JavaScript',
+  'React',
+  'Angular',
+  'MongoDB',
+  'Oracle',
+  'Redis',
+  'Elasticsearch',
+  'Kafka',
+  'Socket.IO',
+  'BullMQ',
+  'Docker',
+  'AWS',
+  'GitHub Actions',
+  'REST APIs',
+  'JWT',
+  'OAuth',
+  'TOTP 2FA',
+  'Git',
+  'CI/CD',
 ]
 
 export const EXPERIENCE = [
   {
-    period:  '2025 — Present',
-    role:    'Software Engineer-1',
+    period: 'Jan 2024 — Present',
+    role: 'Software Engineer I',
     company: 'Bosch Global Software Technologies · Coimbatore, India',
     points: [
-      'Built FossLens — automated CVE notification system using Dependency-Track + SMTP',
-      'Developed and maintained PMT Architecture Reports platform (Angular + Node.js)',
-      'Implemented SLM Mailer — scheduled batch email reporting with Node.js cron jobs',
-      'Contributed to Unified Desk app across Angular frontend and Node.js backend',
-      'Built automation tooling reducing manual reporting overhead significantly',
+      'Develop enterprise software using Java, Spring Boot, Node.js, Angular and TypeScript',
+      'Built automation and backend services for application lifecycle, reporting and compliance workflows',
+      'Developed FossLens automation integrating GitHub, Dependency-Track and enterprise APIs',
+      'Worked on PMT architecture and reporting systems used across internal engineering workflows',
+      'Built and maintained enterprise Angular applications and REST-based backend services',
+      'Automated testing and engineering workflows using Playwright, SWTBot and CI/CD pipelines',
+      'Improved application startup performance from approximately 25 seconds to 2–3 seconds',
+      'Reduced post-release defects by approximately 30% through automated validation and tooling',
+      'Reduced manual testing effort by approximately 90% through test automation',
     ],
   },
+
   {
-    period:  'Sep 2026',
-    role:    'Open Source Author',
-    company: '@anantduhan/limiter-core · npm',
+    period: 'Open Source',
+    role: 'Open Source Developer',
+    company: '@anantduhan/limiter-core · GitHub',
     points: [
-      'Designed and shipped production-grade distributed rate limiter for Node.js',
-      'Atomic Redis Lua scripts — zero race conditions under high concurrency',
-      '44 tests passing across unit and integration suites',
-      'Express and Fastify adapter middleware included out of the box',
-    ],
-  },
-  {
-    period:  '2020 — 2024',
-    role:    'B.Tech — Computer Science',
-    company: 'SRM Institute of Science and Technology · Chennai, India',
-    points: [
-      'Specialization in full-stack web development and systems programming',
-      'Strong foundation in data structures, algorithms, databases and networks',
+      'Designed a TypeScript rate-limiting library for Node.js applications',
+      'Implemented token-bucket and sliding-window rate-limiting strategies',
+      'Implemented memory and Redis-backed storage for development and distributed deployments',
+      'Added Express and Fastify integrations for application-level rate limiting',
+      'Designed the library around distributed-system concerns such as concurrency and atomic operations',
+      'npm publication is planned; the project is currently available through GitHub',
     ],
   },
 ]
 
 export const CONTACT_LINKS = [
-  { icon: '⚡', label: 'GitHub',   href: 'https://github.com/AnantDuhan' },
-  { icon: '📦', label: 'npm',      href: 'https://npmjs.com/~anantduhan' },
-  { icon: '💼', label: 'LinkedIn', href: 'https://linkedin.com/in/anantduhan' },
+  {
+    icon: '⚡',
+    label: 'GitHub',
+    href: 'https://github.com/AnantDuhan',
+  },
+  {
+    icon: '📦',
+    label: 'limiter-core',
+    href: 'https://github.com/AnantDuhan/limiter-core',
+  },
+  {
+    icon: '💼',
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/anantduhan',
+  },
 ]
