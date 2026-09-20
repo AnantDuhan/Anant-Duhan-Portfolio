@@ -20,7 +20,7 @@ export default function About() {
               <p>
                 I'm a <strong className="text-gray-900 dark:text-white font-semibold">Software Engineer at Bosch Global Software Technologies</strong>,
                 working on the PMT Architecture Reports platform — Angular frontend,
-                Node.js API, and automation tooling used by hundreds of engineers.
+                Node.js API, and automation tooling used by thousands of engineers.
               </p>
               <p>
                 Outside work I build in the open. My latest:{' '}
