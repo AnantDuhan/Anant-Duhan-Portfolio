@@ -1,75 +1,73 @@
-# React + TypeScript + Vite
+# Anant Duhan — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+🔗 **Live:** [anantduhan.netlify.app](https://anantduhan.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| | |
+|---|---|
+| **Framework** | React 19 + TypeScript |
+| **Styling** | Tailwind CSS v3 |
+| **Animations** | Framer Motion |
+| **Icons** | Lucide React, React Icons |
+| **Build** | Vite |
+| **Deploy** | Netlify |
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Scroll-driven animations powered by Framer Motion
+- Dark / light mode with `localStorage` persistence
+- Magnetic hover effect on hero photo
+- Animated timeline line in Experience section
+- Staggered skill bar reveals
+- Responsive mobile menu
+- Animated theme toggle (sun ↔ moon)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Sections
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Hero** — intro, photo, stats, CTAs
+- **About** — background, cards
+- **Projects** — MAISON, FossLens, PMT Reports, limiter-core
+- **Skills** — animated bars + tech chip cloud
+- **Experience** — timeline with animated line draw
+- **Contact** — links to GitHub, MAISON, LinkedIn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting Started
 
+```bash
+# Clone
+git clone https://github.com/AnantDuhan/Anant-Duhan-Portfolio.git
+cd Anant-Duhan-Portfolio
+
+# Install
+npm install
+
+# Dev server
+npm run dev
+
+# Production build
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
 
 ```
+src/
+├── assets/          # Profile photo
+├── components/      # Hero, About, Projects, Skills, Experience, Contact, Footer, Navbar
+├── data/            # All content (projects, skills, experience, links)
+├── hooks/           # useInView, useTheme
+└── index.css        # Tailwind directives + gradient-text utility
+```
+
+## Customisation
+
+All content lives in `src/data/index.ts` — update projects, skills, experience, and contact links there without touching any component.
+
+---
+
+© 2026 Anant Duhan
