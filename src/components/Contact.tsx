@@ -25,7 +25,7 @@ export default function Contact() {
             Based in India — open to remote.
           </motion.p>
 
-          <div className="flex justify-center gap-4 flex-wrap">
+          <div className="flex justify-center gap-5 flex-wrap">
             {CONTACT_LINKS.map((link, i) => {
               const Icon = link.icon
               return (
@@ -35,7 +35,7 @@ export default function Contact() {
                   transition={{ duration: 0.5, delay: 0.25 + i * 0.08, ease: "easeOut" }}
                   whileHover={{ y: -4, scale: 1.05, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.97 }}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl
+                  className="flex items-center gap-2 px-7 py-4 rounded-xl
                     border border-gray-200 dark:border-dark-border2
                     bg-white dark:bg-dark-surface
                     text-gray-600 dark:text-gray-400 text-sm font-medium

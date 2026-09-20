@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import { Shield } from 'lucide-react'
 
 export const NAV_LINKS = [
@@ -359,11 +360,16 @@ export const CONTACT_LINKS = [
   {
     icon: Shield,
     label: 'limiter-core',
-    href: 'https://github.com/AnantDuhan/limiter-core',
+    href: 'https://anantduhan.github.io/limiter-core/',
   },
   {
     icon: FaLinkedin,
     label: 'LinkedIn',
     href: 'https://linkedin.com/in/anantduhan',
+  },
+  {
+    icon: SiLeetcode,
+    label: 'LeetCode',
+    href: 'https://leetcode.com/u/AnantDuhan_',
   },
 ]
