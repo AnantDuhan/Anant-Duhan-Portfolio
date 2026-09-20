@@ -21,20 +21,27 @@ export default function Contact() {
           </p>
 
           <div className="flex justify-center gap-3 flex-wrap">
-            {CONTACT_LINKS.map((l, i) => (
-              <a key={l.label} href={l.href} target="_blank" rel="noopener"
-                className={`flex items-center gap-2 px-5 py-3 rounded-xl
-                  border border-gray-200 dark:border-dark-border2
-                  bg-white dark:bg-dark-surface
-                  text-gray-600 dark:text-gray-400 text-sm font-medium
-                  hover:border-accent hover:text-accent hover:bg-accent/5
-                  hover:-translate-y-1 transition-all duration-200
-                  ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-                style={{ transitionDelay: `${200 + i * 80}ms`, transitionDuration: '600ms' }}>
-                <span>{l.icon}</span>
-                {l.label}
-              </a>
-            ))}
+            {CONTACT_LINKS.map((link) => {
+              const Icon = link.icon
+
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    flex items-center gap-2
+                    text-gray-500 dark:text-gray-400
+                    hover:text-accent
+                    transition-colors duration-200
+                  "
+                >
+                  <Icon size={17} />
+                  <span>{link.label}</span>
+                </a>
+              )
+            })}
           </div>
         </div>
       </div>

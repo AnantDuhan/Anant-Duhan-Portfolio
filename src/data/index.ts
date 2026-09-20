@@ -1,3 +1,6 @@
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { Shield } from 'lucide-react'
+
 export const NAV_LINKS = [
   { label: 'About',      href: '#about' },
   { label: 'Experience', href: '#experience' },
@@ -83,7 +86,6 @@ socket.on('orderStatusUpdated', (order) => {
 // Cashfree payments
 // TOTP 2FA`,
   },
-
   {
     featured: true,
     icon: '🛡️',
@@ -103,20 +105,24 @@ socket.on('orderStatusUpdated', (order) => {
     ],
     links: [
       {
+        label: 'Live Demo',
+        href: 'https://anantduhan.github.io/limiter-core/',
+      },
+      {
         label: 'GitHub',
         href: 'https://github.com/AnantDuhan/limiter-core',
       },
     ],
     code: `const limiter = new RateLimiter({
-  rate: 100,
-  window: '1 minute',
-  burst: 150,
-  backend: 'redis',
-  redisClient: redis,
-});
+    rate: 100,
+    window: '1 minute',
+    burst: 150,
+    backend: 'redis',
+    redisClient: redis,
+  });
 
-const { allowed } =
-  await limiter.check('user-123');`,
+  const { allowed } =
+    await limiter.check('user-123');`,
   },
 
   {
@@ -160,78 +166,149 @@ const { allowed } =
 
 export const SKILLS = [
   {
-    group: 'Languages',
+    group: 'Backend Engineering',
     items: [
-      { name: 'Java',       pct: 88 },
-      { name: 'TypeScript', pct: 90 },
-      { name: 'JavaScript', pct: 88 },
-      { name: 'Python',    pct: 70 },
-      { name: 'SQL',       pct: 78 },
-    ],
-  },
-
-  {
-    group: 'Backend',
-    items: [
+      { name: 'Java', pct: 88 },
       { name: 'Spring Boot', pct: 85 },
-      { name: 'Node.js',     pct: 90 },
-      { name: 'Express',     pct: 88 },
-      { name: 'REST APIs',   pct: 90 },
-    ],
-  },
-
-  {
-    group: 'Frontend',
-    items: [
-      { name: 'Angular',    pct: 85 },
-      { name: 'React',      pct: 82 },
-      { name: 'TypeScript', pct: 90 },
-      { name: 'Redux',      pct: 78 },
+      { name: 'Node.js', pct: 90 },
+      { name: 'Express', pct: 88 },
+      { name: 'REST APIs', pct: 92 },
+      { name: 'Microservices', pct: 82 },
+      { name: 'Event-Driven Architecture', pct: 78 },
+      { name: 'API Design', pct: 88 },
     ],
   },
 
   {
     group: 'Distributed Systems',
     items: [
-      { name: 'Redis',         pct: 85 },
+      { name: 'Redis', pct: 85 },
+      { name: 'Kafka', pct: 72 },
+      { name: 'Socket.IO / WebSockets', pct: 84 },
+      { name: 'BullMQ / Background Jobs', pct: 78 },
       { name: 'Elasticsearch', pct: 78 },
-      { name: 'Socket.IO',     pct: 82 },
-      { name: 'Docker',        pct: 82 },
+      { name: 'Rate Limiting', pct: 88 },
+      { name: 'Caching', pct: 88 },
+      { name: 'Horizontal Scaling', pct: 72 },
+    ],
+  },
+
+  {
+    group: 'Databases',
+    items: [
+      { name: 'MongoDB', pct: 88 },
+      { name: 'Oracle', pct: 78 },
+      { name: 'SQL', pct: 82 },
+      { name: 'Database Indexing', pct: 82 },
+      { name: 'Query Optimization', pct: 75 },
+      { name: 'Data Modeling', pct: 82 },
+    ],
+  },
+
+  {
+    group: 'Cloud & DevOps',
+    items: [
+      { name: 'AWS', pct: 75 },
+      { name: 'Docker', pct: 84 },
+      { name: 'GitHub Actions', pct: 85 },
+      { name: 'CI/CD', pct: 85 },
+      { name: 'Linux', pct: 78 },
+      { name: 'Cloud Deployment', pct: 78 },
+    ],
+  },
+
+  {
+    group: 'Security & Reliability',
+    items: [
+      { name: 'JWT Authentication', pct: 85 },
+      { name: 'OAuth 2.0', pct: 78 },
+      { name: 'TOTP 2FA', pct: 82 },
+      { name: 'API Rate Limiting', pct: 88 },
+      { name: 'HTTP Security', pct: 78 },
+      { name: 'Fault Tolerance', pct: 70 },
+    ],
+  },
+
+  {
+    group: 'Frontend',
+    items: [
+      { name: 'Angular', pct: 85 },
+      { name: 'React', pct: 82 },
+      { name: 'TypeScript', pct: 90 },
+      { name: 'Redux', pct: 78 },
+      { name: 'Tailwind CSS', pct: 78 },
     ],
   },
 ]
 
 export const TECH_CHIPS = [
+  // Languages
   'Java',
-  'Spring Boot',
-  'Node.js',
   'TypeScript',
   'JavaScript',
-  'React',
-  'Angular',
+  'Python',
+  'SQL',
+
+  // Backend
+  'Spring Boot',
+  'Node.js',
+  'Express',
+  'REST APIs',
+  'Microservices',
+  'Event-Driven Architecture',
+  'API Design',
+
+  // Distributed Systems
+  'Redis',
+  'Kafka',
+  'Elasticsearch',
+  'Socket.IO',
+  'WebSockets',
+  'BullMQ',
+  'Caching',
+  'Rate Limiting',
+  'Background Jobs',
+  'Horizontal Scaling',
+
+  // Databases
   'MongoDB',
   'Oracle',
-  'Redis',
-  'Elasticsearch',
-  'Kafka',
-  'Socket.IO',
-  'BullMQ',
-  'Docker',
+  'Database Indexing',
+  'Query Optimization',
+  'Data Modeling',
+
+  // Cloud / DevOps
   'AWS',
+  'Docker',
   'GitHub Actions',
-  'REST APIs',
-  'JWT',
-  'OAuth',
-  'TOTP 2FA',
-  'Git',
   'CI/CD',
+  'Linux',
+  'Cloud Deployment',
+
+  // Security
+  'JWT',
+  'OAuth 2.0',
+  'TOTP 2FA',
+  'API Security',
+
+  // Frontend
+  'React',
+  'Angular',
+  'Redux',
+  'Tailwind CSS',
+
+  // Engineering
+  'Git',
+  'System Design',
+  'Testing',
+  'Automation',
 ]
 
 export const EXPERIENCE = [
   {
     period: 'Jan 2024 — Present',
     role: 'Software Engineer I',
-    company: 'Bosch Global Software Technologies · Coimbatore, India',
+    company: 'Bosch Global Software Technologies · Bangalore, India',
     points: [
       'Develop enterprise software using Java, Spring Boot, Node.js, Angular and TypeScript',
       'Built automation and backend services for application lifecycle, reporting and compliance workflows',
@@ -242,6 +319,18 @@ export const EXPERIENCE = [
       'Improved application startup performance from approximately 25 seconds to 2–3 seconds',
       'Reduced post-release defects by approximately 30% through automated validation and tooling',
       'Reduced manual testing effort by approximately 90% through test automation',
+    ],
+  },
+
+  {
+    period: 'Jun 2022 — Jul 2022',
+    role: 'Software Engineer Intern',
+    company: 'Hestabit Technologies Pvt. Ltd. · Noida, India',
+    points: [
+      'Developed a monolithic Node.js backend and refactored it into scalable microservices using Moleculer.js to improve maintainability and address API bottlenecks',
+      'Built low-latency real-time communication between server and client using WebSockets, enabling continuous data flow',
+      'Developed REST APIs and integrated backend services with React-based frontend applications',
+      'Worked with Node.js, Moleculer.js, React, JavaScript, REST APIs and WebSockets',
     ],
   },
 
@@ -260,19 +349,20 @@ export const EXPERIENCE = [
   },
 ]
 
+
 export const CONTACT_LINKS = [
   {
-    icon: '⚡',
+    icon: FaGithub,
     label: 'GitHub',
     href: 'https://github.com/AnantDuhan',
   },
   {
-    icon: '📦',
+    icon: Shield,
     label: 'limiter-core',
     href: 'https://github.com/AnantDuhan/limiter-core',
   },
   {
-    icon: '💼',
+    icon: FaLinkedin,
     label: 'LinkedIn',
     href: 'https://linkedin.com/in/anantduhan',
   },
