@@ -4,6 +4,7 @@ import { Shield } from 'lucide-react'
 
 export const NAV_LINKS = [
   { label: 'About',      href: '#about' },
+  { label: 'Impact', href: '#impact' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects',   href: '#projects' },
   { label: 'Skills',     href: '#skills' },
@@ -11,32 +12,44 @@ export const NAV_LINKS = [
 ]
 
 export const STATS = [
-  { value: '2.5+', label: 'Years experience' },
-  { value: '1100+', label: 'LeetCode problems solved' },
-  { value: '2',    label: 'Featured projects' },
-  { value: '3+',   label: 'Production systems' },
+  {
+    value: '2.5+',
+    label: 'Years Engineering',
+  },
+  {
+    value: '25s → 2–3s',
+    label: 'Startup Time',
+  },
+  {
+    value: '90%',
+    label: 'Manual Testing Reduced',
+  },
+  {
+    value: '30%',
+    label: 'Fewer Post-Release Defects',
+  },
 ]
 
 export const ABOUT_CARDS = [
   {
-    icon: '⚡',
-    title: 'Backend Engineering',
-    desc: 'Java, Spring Boot, Node.js, REST APIs, microservices and event-driven systems',
-  },
-  {
-    icon: '🌐',
-    title: 'Full-Stack',
-    desc: 'React and Angular applications backed by scalable Node.js and Spring Boot services',
+    icon: '⚙️',
+    title: 'Backend Systems',
+    desc: 'Java, Spring Boot, Node.js, REST APIs, service design and backend architecture.',
   },
   {
     icon: '🔄',
     title: 'Distributed Systems',
-    desc: 'Redis, Elasticsearch, Socket.IO, background jobs, caching and distributed rate limiting',
+    desc: 'Redis, Elasticsearch, WebSockets, background processing, caching and rate limiting.',
+  },
+  {
+    icon: '🛡️',
+    title: 'Reliability & Security',
+    desc: 'Authentication, TOTP 2FA, API security, fault handling and production reliability.',
   },
   {
     icon: '🚀',
-    title: 'Production',
-    desc: 'Docker, AWS, GitHub Actions, CI/CD, authentication, monitoring and cloud deployments',
+    title: 'Production Engineering',
+    desc: 'Docker, AWS, CI/CD, automation, performance optimization and observability.',
   },
 ]
 
@@ -303,6 +316,27 @@ export const TECH_CHIPS = [
   'System Design',
   'Testing',
   'Automation',
+]
+
+export const BOSCH_IMPACT = [
+  {
+    value: '25s → 2–3s',
+    title: 'Application startup',
+    description:
+      'Re-engineered application initialization and reduced startup time by approximately 90%.',
+  },
+  {
+    value: '90%',
+    title: 'Manual testing effort',
+    description:
+      'Automated testing workflows using Playwright and SWTBot.',
+  },
+  {
+    value: '30%',
+    title: 'Post-release defects',
+    description:
+      'Built automated validation and tooling that reduced defects reaching production.',
+  },
 ]
 
 export const EXPERIENCE = [
