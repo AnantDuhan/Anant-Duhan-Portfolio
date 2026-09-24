@@ -61,6 +61,7 @@ export default function Navbar({ dark, toggle }: Props) {
           {/* Theme toggle */}
           <motion.button
             onClick={toggle}
+            aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className="w-9 h-9 rounded-lg border border-gray-200 dark:border-dark-border2

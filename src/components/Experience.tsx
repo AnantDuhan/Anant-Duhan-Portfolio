@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "../hooks/useInView";
-import { EXPERIENCE, BOSCH_IMPACT } from "../data";
+import { EXPERIENCE } from "../data";
 
 export default function Experience() {
   const { ref, inView } = useInView(0.1);
@@ -139,77 +139,6 @@ export default function Experience() {
                 {item.company}
               </p>
 
-              {/* Bosch impact */}
-              {i === 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-7">
-                  {BOSCH_IMPACT.map((impact) => (
-                    <motion.div
-                      key={impact.title}
-                      initial={{
-                        opacity: 0,
-                        y: 16,
-                      }}
-                      animate={
-                        inView
-                          ? {
-                              opacity: 1,
-                              y: 0,
-                            }
-                          : {}
-                      }
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.45,
-                      }}
-                      className="
-                        rounded-2xl
-                        p-5
-                        bg-white
-                        dark:bg-dark-surface
-                        border
-                        border-gray-100
-                        dark:border-dark-border
-                        hover:border-accent/30
-                        transition-colors
-                      "
-                    >
-                      <div
-                        className="
-                          text-2xl
-                          font-extrabold
-                          tracking-tight
-                          text-accent
-                          mb-2
-                        "
-                      >
-                        {impact.value}
-                      </div>
-
-                      <h4
-                        className="
-                          font-semibold
-                          text-gray-900
-                          dark:text-white
-                          mb-2
-                        "
-                      >
-                        {impact.title}
-                      </h4>
-
-                      <p
-                        className="
-                          text-sm
-                          text-gray-500
-                          dark:text-gray-400
-                          leading-relaxed
-                        "
-                      >
-                        {impact.description}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              )}
 
               {/* Experience details */}
               <ul className="space-y-2">

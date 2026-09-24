@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "description": "Personal portfolio of Anant Duhan, built with React, TypeScript, Tailwind CSS and Framer Motion.",
   "keywords": [],
   "homepage": "https://github.com/AnantDuhan/Anant-Duhan-Portfolio#readme",
   "bugs": {
@@ -14,7 +14,6 @@
   },
   "author": "Anant Duhan",
   "type": "module",
-  "main": "eslint.config.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -26,8 +25,7 @@
     "lucide-react": "^1.47.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-icons": "^5.7.0",
-    "simple-icons": "^16.32.0"
+    "react-icons": "^5.7.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

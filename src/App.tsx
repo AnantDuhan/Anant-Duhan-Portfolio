@@ -7,7 +7,6 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Impact from './components/Impact'
 
 export default function App() {
   const { dark, toggle } = useTheme();
@@ -17,11 +16,10 @@ export default function App() {
       <div className="bg-white dark:bg-dark-bg text-gray-900 dark:text-white min-h-screen transition-colors duration-300">
         <Navbar dark={dark} toggle={toggle} />
         <Hero />
-        <Impact />
+        <About />
         <Experience />
         <Projects />
         <Skills />
-        <About />
         <Contact />
         <Footer />
       </div>

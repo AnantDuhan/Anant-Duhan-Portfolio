@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from 'react-icons/fa';
 import profileImage from '../assets/profile.jpeg'
+import { STATS } from '../data'
 
 export default function Hero() {
   return (
@@ -280,109 +281,14 @@ export default function Hero() {
                 max-w-xl
               "
             >
-              <div>
-                <div
-                  className="
-                    text-xl
-                    lg:text-2xl
-                    font-extrabold
-                    text-gray-900
-                    dark:text-white
-                  "
-                >
-                  2.5+
+              {STATS.map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-xl lg:text-2xl font-extrabold text-gray-900 dark:text-white whitespace-nowrap">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
                 </div>
-
-                <div
-                  className="
-                    text-xs
-                    text-gray-500
-                    dark:text-gray-500
-
-                    mt-1
-                  "
-                >
-                  Years Engineering
-                </div>
-              </div>
-
-              <div>
-                <div
-                  className="
-                    text-xl
-                    lg:text-2xl
-                    font-extrabold
-                    text-gray-900
-                    dark:text-white
-                    whitespace-nowrap
-                  "
-                >
-                  25s → 2–3s
-                </div>
-
-                <div
-                  className="
-                    text-xs
-                    text-gray-500
-                    dark:text-gray-500
-
-                    mt-1
-                  "
-                >
-                  Startup Time
-                </div>
-              </div>
-
-              <div>
-                <div
-                  className="
-                    text-xl
-                    lg:text-2xl
-                    font-extrabold
-                    text-gray-900
-                    dark:text-white
-                  "
-                >
-                  90%
-                </div>
-
-                <div
-                  className="
-                    text-xs
-                    text-gray-500
-                    dark:text-gray-500
-
-                    mt-1
-                  "
-                >
-                  Testing Reduced
-                </div>
-              </div>
-
-              <div>
-                <div
-                  className="
-                    text-xl
-                    lg:text-2xl
-                    font-extrabold
-                    text-gray-900
-                    dark:text-white
-                  "
-                >
-                  30%
-                </div>
-
-                <div
-                  className="
-                    text-xs
-                    text-gray-500
-                    dark:text-gray-500
-                    mt-1
-                  "
-                >
-                  Fewer Defects
-                </div>
-              </div>
+              ))}
             </motion.div>
           </div>
 

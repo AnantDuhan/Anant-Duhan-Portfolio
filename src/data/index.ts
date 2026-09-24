@@ -4,7 +4,6 @@ import { Shield } from 'lucide-react'
 
 export const NAV_LINKS = [
   { label: 'About',      href: '#about' },
-  { label: 'Impact', href: '#impact' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects',   href: '#projects' },
   { label: 'Skills',     href: '#skills' },
@@ -22,11 +21,11 @@ export const STATS = [
   },
   {
     value: '90%',
-    label: 'Manual Testing Reduced',
+    label: 'Testing Reduced',
   },
   {
     value: '30%',
-    label: 'Fewer Post-Release Defects',
+    label: 'Fewer Defects',
   },
 ]
 
@@ -316,27 +315,6 @@ export const TECH_CHIPS = [
   'System Design',
   'Testing',
   'Automation',
-]
-
-export const BOSCH_IMPACT = [
-  {
-    value: '25s → 2–3s',
-    title: 'Application startup',
-    description:
-      'Re-engineered application initialization and reduced startup time by approximately 90%.',
-  },
-  {
-    value: '90%',
-    title: 'Manual testing effort',
-    description:
-      'Automated testing workflows using Playwright and SWTBot.',
-  },
-  {
-    value: '30%',
-    title: 'Post-release defects',
-    description:
-      'Built automated validation and tooling that reduced defects reaching production.',
-  },
 ]
 
 export const EXPERIENCE = [

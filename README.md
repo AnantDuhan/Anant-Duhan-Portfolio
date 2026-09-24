@@ -21,7 +21,6 @@ Personal portfolio website built with React, TypeScript, and Tailwind CSS.
 
 - Scroll-driven animations powered by Framer Motion
 - Dark / light mode with `localStorage` persistence
-- Magnetic hover effect on hero photo
 - Animated timeline line in Experience section
 - Staggered skill bar reveals
 - Responsive mobile menu
@@ -29,12 +28,12 @@ Personal portfolio website built with React, TypeScript, and Tailwind CSS.
 
 ## Sections
 
-- **Hero** — intro, photo, stats, CTAs
-- **About** — background, cards
-- **Projects** — MAISON, FossLens, PMT Reports, limiter-core
-- **Skills** — animated bars + tech chip cloud
+- **Hero** — intro, photo, impact stats, CTAs
+- **About** — background, focus-area cards
 - **Experience** — timeline with animated line draw
-- **Contact** — links to GitHub, MAISON, LinkedIn
+- **Projects** — MAISON, limiter-core, FossLens, PMT Reports
+- **Skills** — animated bars + tech chip cloud
+- **Contact** — links to GitHub, limiter-core, LinkedIn, LeetCode
 
 ## Getting Started
 
@@ -57,11 +56,13 @@ npm run build
 
 ```
 src/
-├── assets/          # Profile photo
+├── assets/          # Profile photo (profile.jpeg)
 ├── components/      # Hero, About, Projects, Skills, Experience, Contact, Footer, Navbar
 ├── data/            # All content (projects, skills, experience, links)
 ├── hooks/           # useInView, useTheme
 └── index.css        # Tailwind directives + gradient-text utility
+
+index.html           # Meta tags, Open Graph tags, Google Fonts
 ```
 
 ## Customisation
