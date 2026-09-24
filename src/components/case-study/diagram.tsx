@@ -8,7 +8,7 @@ export function Diagram({ title, desc, viewBox, minWidth = 720, caption, childre
   const raw = useId()
   const id = `d${raw.replace(/[^a-zA-Z0-9]/g, '')}`
   return (
-    <figure className="my-10">
+    <figure className="my-10 lg:-mx-24">
       <div className="overflow-x-auto rounded-2xl border border-gray-100 dark:border-dark-border bg-gray-50 dark:bg-dark-bg2 p-4">
         <svg viewBox={viewBox} style={{ minWidth }} className="w-full h-auto font-sans" role="img"
           aria-labelledby={`${id}-t ${id}-d`}>

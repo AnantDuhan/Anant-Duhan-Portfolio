@@ -140,8 +140,8 @@ redis.call('EXPIRE', key, ttlSec)`,
     ],
     name: 'FossLens — Vulnerability Automation',
     summary:
-      'Onboarded 1,500+ GitHub repositories into Dependency-Track scanning, and built the notification pipeline that emails each project owner only the findings that are new since the last run.',
-    tech: ['Node.js', 'Dependency-Track', 'GitHub', 'Handlebars', 'SMTP', 'YAML'],
+      'Automation that onboards LeanIX applications and their GitHub repositories into FossLens scanning — 1,500+ repositories — plus a notifier that emails owners only new findings.',
+    tech: ['Node.js', 'LeanIX API', 'GitHub API', 'FossLens API', 'Dependency-Track', 'YAML'],
     links: [{ label: 'Read case study', href: '/case-studies/fosslens' }],
   },
   {
