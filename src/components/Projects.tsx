@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
-import { PROJECTS, type Project, type ProjectLink } from '../data'
+import { PROJECTS, type ProjectLink } from '../data'
 
 const badgeColors: Record<string, string> = {
   green:   'text-emerald-600 dark:text-emerald-400 bg-emerald-400/10 border-emerald-400/30',
@@ -16,25 +16,6 @@ function LinkOut({ link, className, children }: { link: ProjectLink; className: 
   )
 }
 
-function Story({ p }: { p: Project }) {
-  if (!p.problem) return null
-  const rows = [
-    ['Problem', p.problem],
-    ['Approach', p.approach],
-    ['Result', p.result],
-  ] as const
-  return (
-    <dl className="space-y-3">
-      {rows.map(([label, text]) => text && (
-        <div key={label}>
-          <dt className="text-xs font-semibold text-gray-900 dark:text-white mb-0.5">{label}</dt>
-          <dd className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{text}</dd>
-        </div>
-      ))}
-    </dl>
-  )
-}
-
 export default function Projects() {
   return (
     <section id="projects" className="py-28 px-6 lg:px-16 bg-gray-50 dark:bg-dark-bg2">
@@ -45,14 +26,14 @@ export default function Projects() {
           Deployed products, open-source infrastructure, and internal work at Bosch.
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-5">
           {PROJECTS.map((p) => {
             const Icon = p.icon
             const primary = p.links[0]
             return (
               <article key={p.name}
                 className={`rounded-2xl p-6 bg-white dark:bg-dark-surface border border-gray-100 dark:border-dark-border
-                  flex flex-col gap-5 ${p.featured ? 'lg:col-span-2 lg:grid lg:grid-cols-2 lg:gap-10' : ''}`}>
+                  flex flex-col gap-5 ${p.featured ? 'lg:col-span-6 lg:grid lg:grid-cols-2 lg:gap-10' : 'lg:col-span-2'}`}>
 
                 <div className="flex flex-col gap-4">
                   <div className="flex items-start justify-between gap-3">
@@ -77,8 +58,6 @@ export default function Projects() {
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{p.summary}</p>
                   </div>
-
-                  <Story p={p} />
 
                   <div className="flex flex-wrap gap-2">
                     {p.tech.map(t => (

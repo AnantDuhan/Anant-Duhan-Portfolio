@@ -21,8 +21,8 @@ Personal portfolio website built with React, TypeScript, and Tailwind CSS.
 
 - Hero entrance animation (respects the OS "reduce motion" setting)
 - Dark / light mode that follows the system setting until the visitor picks one
-- FossLens case study page with an inline SVG architecture diagram
-- Project cards told as problem → approach → result, with real code excerpts
+- Case studies for Unified Desk and FossLens, with inline SVG architecture diagrams
+- Featured project cards with real code excerpts
 - Keyboard focus styles, responsive mobile menu, Open Graph tags
 
 ## Sections
@@ -30,10 +30,10 @@ Personal portfolio website built with React, TypeScript, and Tailwind CSS.
 - **Hero** — intro, photo, impact stats, CTAs
 - **About** — background, focus-area cards
 - **Experience** — work history timeline
-- **Projects** — MAISON, limiter-core, FossLens, PMT Reports
+- **Projects** — MAISON, limiter-core, Unified Desk, FossLens, PMT Reports
 - **Skills** — grouped technologies
 - **Contact** — email, LinkedIn, GitHub, limiter-core, LeetCode
-- **/case-studies/fosslens** — FossLens case study
+- **/case-studies/unified-desk**, **/case-studies/fosslens** — case studies
 
 ## Getting Started
 
@@ -60,7 +60,8 @@ src/
 ├── components/      # Hero, About, Projects, Skills, Experience, Contact, Footer, Navbar
 ├── data/            # All content (projects, skills, experience, links)
 ├── hooks/           # useTheme
-├── pages/           # FossLensCaseStudy
+├── components/case-study/  # Shared case study layout + SVG diagram primitives
+├── pages/           # Unified Desk and FossLens case studies
 └── index.css        # Tailwind directives + gradient-text utility
 
 index.html           # Meta tags, Open Graph tags, Google Fonts
