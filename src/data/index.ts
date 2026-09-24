@@ -1,320 +1,170 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { SiLeetcode } from 'react-icons/si';
-import { Shield } from 'lucide-react'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { SiLeetcode } from 'react-icons/si'
+import {
+  Mail, Shield, Server, Network, ShieldCheck, Layers,
+  ShoppingBag, Gauge, BellRing, BarChart3, LayoutDashboard,
+  type LucideIcon,
+} from 'lucide-react'
+import type { IconType } from 'react-icons'
+
+export const EMAIL = 'aanantduhan@gmail.com'
+export const RESUME_URL = '../public/resume.pdf'
 
 export const NAV_LINKS = [
-  { label: 'About',      href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects',   href: '#projects' },
-  { label: 'Skills',     href: '#skills' },
-  { label: 'Contact',    href: '#contact' },
+  { label: 'About',      href: '/#about' },
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Projects',   href: '/#projects' },
+  { label: 'Skills',     href: '/#skills' },
+  { label: 'Contact',    href: '/#contact' },
 ]
 
 export const STATS = [
-  {
-    value: '2.5+',
-    label: 'Years Engineering',
-  },
-  {
-    value: '25s → 2–3s',
-    label: 'Startup Time',
-  },
-  {
-    value: '90%',
-    label: 'Testing Reduced',
-  },
-  {
-    value: '30%',
-    label: 'Fewer Defects',
-  },
+  { value: '2.5+',       label: 'Years Engineering' },
+  { value: '25s → 2–3s', label: 'Startup Time' },
+  { value: '90%',        label: 'Testing Reduced' },
+  { value: '30%',        label: 'Fewer Defects' },
 ]
 
-export const ABOUT_CARDS = [
+export const ABOUT_CARDS: { icon: LucideIcon; title: string; desc: string }[] = [
   {
-    icon: '⚙️',
+    icon: Server,
     title: 'Backend Systems',
-    desc: 'Java, Spring Boot, Node.js, REST APIs, service design and backend architecture.',
+    desc: 'Node.js, Express, Java, Spring Boot, REST APIs, service design and backend architecture.',
   },
   {
-    icon: '🔄',
-    title: 'Distributed Systems',
-    desc: 'Redis, Elasticsearch, WebSockets, background processing, caching and rate limiting.',
+    icon: Network,
+    title: 'Event-Driven Systems',
+    desc: 'Kafka, Redis, Elasticsearch, WebSockets, background jobs, caching and rate limiting.',
   },
   {
-    icon: '🛡️',
-    title: 'Reliability & Security',
-    desc: 'Authentication, TOTP 2FA, API security, fault handling and production reliability.',
+    icon: ShieldCheck,
+    title: 'Security & Reliability',
+    desc: 'Azure AD SSO, JWT, TOTP 2FA, API security and graceful failure handling.',
   },
   {
-    icon: '🚀',
-    title: 'Production Engineering',
-    desc: 'Docker, AWS, CI/CD, automation, performance optimization and observability.',
+    icon: Layers,
+    title: 'Full-Stack Delivery',
+    desc: 'Angular and React frontends on Node.js APIs, shipped with Docker and CI/CD.',
   },
 ]
 
-export const PROJECTS = [
+export type ProjectLink = { label: string; href: string; external?: boolean }
+
+export type Project = {
+  featured?: boolean
+  icon: LucideIcon
+  badges: { label: string; color: string }[]
+  name: string
+  summary: string
+  tech: string[]
+  links: ProjectLink[]
+  code?: string
+  codeLabel?: string
+}
+
+export const PROJECTS: Project[] = [
   {
     featured: true,
-    icon: '🛒',
+    icon: ShoppingBag,
     badges: [
       { label: 'featured', color: 'green' },
       { label: 'live', color: 'default' },
       { label: 'full-stack', color: 'default' },
     ],
     name: 'MAISON — E-Commerce Platform',
-    desc: 'Production-oriented full-stack e-commerce platform covering authentication, TOTP 2FA, product discovery, payments, orders, returns, refunds, real-time updates, Redis caching, Elasticsearch search, background jobs, AWS S3, AI-powered review summaries and administrative analytics.',
-    tech: [
-      'React',
-      'Node.js',
-      'Express',
-      'MongoDB',
-      'Redis',
-      'Elasticsearch',
-      'Socket.IO',
-      'Cashfree',
-      'AWS S3',
-      'Gemini AI',
-      'JWT',
-      '2FA',
-      'BullMQ',
-    ],
+    summary:
+      'Full-stack e-commerce platform: authentication with TOTP 2FA, product search, Cashfree payments, orders, returns and refunds, real-time order updates, background jobs, AI review summaries and admin analytics.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Redis', 'Elasticsearch', 'Socket.IO', 'BullMQ', 'Cashfree', 'AWS S3', 'Gemini AI', 'JWT', 'TOTP 2FA'],
     links: [
-      {
-        label: 'Live Demo',
-        href: 'https://maisonorderplanning.in',
-      },
-      {
-        label: 'GitHub',
-        href: 'https://github.com/AnantDuhan/MAISON-Order-Planning',
-      },
+      { label: 'Live Demo', href: 'https://maisonorderplanning.in', external: true },
+      { label: 'GitHub', href: 'https://github.com/AnantDuhan/MAISON-Order-Planning', external: true },
     ],
-    code: `// Real-time order updates
-
-socket.on('orderStatusUpdated', (order) => {
-  dispatch(updateOrder(order));
-});
-
-// Redis-backed infrastructure
-// Elasticsearch product search
-// Cashfree payments
-// TOTP 2FA`,
+    codeLabel: 'backend/utils/cache.js',
+    code: `// Shared across all instances; a Redis
+// hiccup becomes a cache miss, not a 500.
+async function getJSON(key) {
+  try {
+    const raw = await redis.get(key);
+    if (raw === null || raw === undefined) return null;
+    return typeof raw === 'string' ? JSON.parse(raw) : raw;
+  } catch (err) {
+    console.error(\`cache.getJSON(\${key}) failed:\`, err.message);
+    return null; // treat as a miss
+  }
+}`,
   },
   {
     featured: true,
-    icon: '🛡️',
+    icon: Gauge,
     badges: [
       { label: 'open source', color: 'green' },
       { label: 'npm coming soon', color: 'default' },
     ],
     name: '@anantduhan/limiter-core',
-    desc: 'TypeScript rate-limiting library for Node.js with token-bucket and sliding-window strategies, in-memory and Redis backends, and Express/Fastify integrations. Designed to provide a consistent API across local development and distributed production environments.',
-    tech: [
-      'TypeScript',
-      'Node.js',
-      'Redis',
-      'Lua',
-      'Express',
-      'Fastify',
-    ],
+    summary:
+      'TypeScript rate-limiting library for Node.js with token-bucket and sliding-window strategies, memory and Redis backends, and Express/Fastify adapters.',
+    tech: ['TypeScript', 'Node.js', 'Redis', 'Lua', 'Express', 'Fastify', 'Jest'],
     links: [
-      {
-        label: 'Live Demo',
-        href: 'https://anantduhan.github.io/limiter-core/',
-      },
-      {
-        label: 'GitHub',
-        href: 'https://github.com/AnantDuhan/limiter-core',
-      },
+      { label: 'Docs & Demo', href: 'https://anantduhan.github.io/limiter-core/', external: true },
+      { label: 'GitHub', href: 'https://github.com/AnantDuhan/limiter-core', external: true },
     ],
-    code: `const limiter = new RateLimiter({
-    rate: 100,
-    window: '1 minute',
-    burst: 150,
-    backend: 'redis',
-    redisClient: redis,
-  });
+    codeLabel: 'src/backends/RedisBackend.ts (Lua)',
+    code: `if tokens >= 1 then
+  tokens  = tokens - 1
+  allowed = 1
+else
+  local needed = 1 - tokens
+  retryAfter   = math.ceil((needed * windowMs / rate) / 1000)
+end
 
-  const { allowed } =
-    await limiter.check('user-123');`,
+redis.call('HSET', key, 'tokens', tokens, 'lastRefill', lastRefill)
+redis.call('EXPIRE', key, ttlSec)`,
   },
-
   {
-    icon: '🔔',
+    icon: LayoutDashboard,
+    badges: [
+      { label: 'Bosch', color: 'yellow' },
+      { label: 'internal', color: 'default' },
+    ],
+    name: 'Unified Desk',
+    summary:
+      'Angular and Node.js app that consolidates ticket workflows from five platforms through the CitiBot API, with GitHub issue-ops driven outage banners.',
+    tech: ['Angular', 'TypeScript', 'Node.js', 'REST APIs', 'GitHub Issues'],
+    links: [{ label: 'Read case study', href: '/case-studies/unified-desk' }],
+  },
+  {
+    icon: BellRing,
     badges: [
       { label: 'Bosch', color: 'yellow' },
       { label: 'internal', color: 'default' },
     ],
     name: 'FossLens — Vulnerability Automation',
-    desc: 'Automation platform for software vulnerability and compliance workflows, integrating GitHub, Dependency-Track and enterprise services to automate application onboarding, scanning and notification workflows.',
-    tech: [
-      'Node.js',
-      'GitHub Actions',
-      'Dependency-Track',
-      'REST APIs',
-      'YAML',
-      'Automation',
-    ],
-    links: [],
+    summary:
+      'Onboarded 1,500+ GitHub repositories into Dependency-Track scanning, and built the notification pipeline that emails each project owner only the findings that are new since the last run.',
+    tech: ['Node.js', 'Dependency-Track', 'GitHub', 'Handlebars', 'SMTP', 'YAML'],
+    links: [{ label: 'Read case study', href: '/case-studies/fosslens' }],
   },
-
   {
-    icon: '📊',
+    icon: BarChart3,
     badges: [
       { label: 'Bosch', color: 'yellow' },
       { label: 'internal', color: 'default' },
     ],
     name: 'PMT Architecture & Reporting Platform',
-    desc: 'Enterprise reporting and automation platform supporting architecture, application lifecycle and compliance-related reporting workflows across internal engineering teams.',
-    tech: [
-      'Angular',
-      'Node.js',
-      'TypeScript',
-      'REST APIs',
-      'Docker',
-      'Automation',
-    ],
+    summary:
+      'Enterprise reporting and automation platform supporting architecture, application lifecycle and compliance reporting across internal engineering teams.',
+    tech: ['Angular', 'Node.js', 'TypeScript', 'REST APIs', 'Docker'],
     links: [],
   },
 ]
 
-export const SKILLS = [
-  {
-    group: 'Backend Engineering',
-    items: [
-      { name: 'Java', pct: 88 },
-      { name: 'Spring Boot', pct: 85 },
-      { name: 'Node.js', pct: 90 },
-      { name: 'Express', pct: 88 },
-      { name: 'REST APIs', pct: 92 },
-      { name: 'Microservices', pct: 82 },
-      { name: 'Event-Driven Architecture', pct: 78 },
-      { name: 'API Design', pct: 88 },
-    ],
-  },
-
-  {
-    group: 'Distributed Systems',
-    items: [
-      { name: 'Redis', pct: 85 },
-      { name: 'Kafka', pct: 72 },
-      { name: 'Socket.IO / WebSockets', pct: 84 },
-      { name: 'BullMQ / Background Jobs', pct: 78 },
-      { name: 'Elasticsearch', pct: 78 },
-      { name: 'Rate Limiting', pct: 88 },
-      { name: 'Caching', pct: 88 },
-      { name: 'Horizontal Scaling', pct: 72 },
-    ],
-  },
-
-  {
-    group: 'Databases',
-    items: [
-      { name: 'MongoDB', pct: 88 },
-      { name: 'Oracle', pct: 78 },
-      { name: 'SQL', pct: 82 },
-      { name: 'Database Indexing', pct: 82 },
-      { name: 'Query Optimization', pct: 75 },
-      { name: 'Data Modeling', pct: 82 },
-    ],
-  },
-
-  {
-    group: 'Cloud & DevOps',
-    items: [
-      { name: 'AWS', pct: 75 },
-      { name: 'Docker', pct: 84 },
-      { name: 'GitHub Actions', pct: 85 },
-      { name: 'CI/CD', pct: 85 },
-      { name: 'Linux', pct: 78 },
-      { name: 'Cloud Deployment', pct: 78 },
-    ],
-  },
-
-  {
-    group: 'Security & Reliability',
-    items: [
-      { name: 'JWT Authentication', pct: 85 },
-      { name: 'OAuth 2.0', pct: 78 },
-      { name: 'TOTP 2FA', pct: 82 },
-      { name: 'API Rate Limiting', pct: 88 },
-      { name: 'HTTP Security', pct: 78 },
-      { name: 'Fault Tolerance', pct: 70 },
-    ],
-  },
-
-  {
-    group: 'Frontend',
-    items: [
-      { name: 'Angular', pct: 85 },
-      { name: 'React', pct: 82 },
-      { name: 'TypeScript', pct: 90 },
-      { name: 'Redux', pct: 78 },
-      { name: 'Tailwind CSS', pct: 78 },
-    ],
-  },
-]
-
-export const TECH_CHIPS = [
-  // Languages
-  'Java',
-  'TypeScript',
-  'JavaScript',
-  'Python',
-  'SQL',
-
-  // Backend
-  'Spring Boot',
-  'Node.js',
-  'Express',
-  'REST APIs',
-  'Microservices',
-  'Event-Driven Architecture',
-  'API Design',
-
-  // Distributed Systems
-  'Redis',
-  'Kafka',
-  'Elasticsearch',
-  'Socket.IO',
-  'WebSockets',
-  'BullMQ',
-  'Caching',
-  'Rate Limiting',
-  'Background Jobs',
-  'Horizontal Scaling',
-
-  // Databases
-  'MongoDB',
-  'Oracle',
-  'Database Indexing',
-  'Query Optimization',
-  'Data Modeling',
-
-  // Cloud / DevOps
-  'AWS',
-  'Docker',
-  'GitHub Actions',
-  'CI/CD',
-  'Linux',
-  'Cloud Deployment',
-
-  // Security
-  'JWT',
-  'OAuth 2.0',
-  'TOTP 2FA',
-  'API Security',
-
-  // Frontend
-  'React',
-  'Angular',
-  'Redux',
-  'Tailwind CSS',
-
-  // Engineering
-  'Git',
-  'System Design',
-  'Testing',
-  'Automation',
+export const SKILL_GROUPS = [
+  { group: 'Languages',          items: ['TypeScript', 'JavaScript', 'Java', 'SQL'] },
+  { group: 'Backend',            items: ['Node.js', 'Express', 'Spring Boot', 'REST APIs', 'Kafka'] },
+  { group: 'Data',               items: ['MongoDB', 'Redis', 'Elasticsearch'] },
+  { group: 'Frontend',           items: ['Angular', 'React'] },
+  { group: 'Security',           items: ['Azure AD SSO', 'JWT', 'TOTP 2FA'] },
+  { group: 'Delivery & testing', items: ['Docker', 'GitHub Actions', 'Playwright', 'SWTBot'] },
 ]
 
 export const EXPERIENCE = [
@@ -334,7 +184,6 @@ export const EXPERIENCE = [
       'Reduced manual testing effort by approximately 90% through test automation',
     ],
   },
-
   {
     period: 'Jun 2022 — Jul 2022',
     role: 'Software Engineer Intern',
@@ -346,42 +195,12 @@ export const EXPERIENCE = [
       'Worked with Node.js, Moleculer.js, React, JavaScript, REST APIs and WebSockets',
     ],
   },
-
-  {
-    period: 'Open Source',
-    role: 'Open Source Developer',
-    company: '@anantduhan/limiter-core · GitHub',
-    points: [
-      'Designed a TypeScript rate-limiting library for Node.js applications',
-      'Implemented token-bucket and sliding-window rate-limiting strategies',
-      'Implemented memory and Redis-backed storage for development and distributed deployments',
-      'Added Express and Fastify integrations for application-level rate limiting',
-      'Designed the library around distributed-system concerns such as concurrency and atomic operations',
-      'npm publication is planned; the project is currently available through GitHub',
-    ],
-  },
 ]
 
-
-export const CONTACT_LINKS = [
-  {
-    icon: FaGithub,
-    label: 'GitHub',
-    href: 'https://github.com/AnantDuhan',
-  },
-  {
-    icon: Shield,
-    label: 'limiter-core',
-    href: 'https://anantduhan.github.io/limiter-core/',
-  },
-  {
-    icon: FaLinkedin,
-    label: 'LinkedIn',
-    href: 'https://linkedin.com/in/anantduhan',
-  },
-  {
-    icon: SiLeetcode,
-    label: 'LeetCode',
-    href: 'https://leetcode.com/u/AnantDuhan_',
-  },
+export const CONTACT_LINKS: { icon: LucideIcon | IconType; label: string; href: string; external: boolean }[] = [
+  { icon: Mail,       label: 'Email',        href: `mailto:${EMAIL}`,                             external: false },
+  { icon: FaLinkedin, label: 'LinkedIn',     href: 'https://linkedin.com/in/anantduhan',          external: true },
+  { icon: FaGithub,   label: 'GitHub',       href: 'https://github.com/AnantDuhan',               external: true },
+  { icon: Shield,     label: 'limiter-core', href: 'https://anantduhan.github.io/limiter-core/',  external: true },
+  { icon: SiLeetcode, label: 'LeetCode',     href: 'https://leetcode.com/u/AnantDuhan_',          external: true },
 ]

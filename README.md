@@ -19,21 +19,21 @@ Personal portfolio website built with React, TypeScript, and Tailwind CSS.
 
 ## Features
 
-- Scroll-driven animations powered by Framer Motion
-- Dark / light mode with `localStorage` persistence
-- Animated timeline line in Experience section
-- Staggered skill bar reveals
-- Responsive mobile menu
-- Animated theme toggle (sun ↔ moon)
+- Hero entrance animation (respects the OS "reduce motion" setting)
+- Dark / light mode that follows the system setting until the visitor picks one
+- Case studies for Unified Desk and FossLens, with inline SVG architecture diagrams
+- Featured project cards with real code excerpts
+- Keyboard focus styles, responsive mobile menu, Open Graph tags
 
 ## Sections
 
 - **Hero** — intro, photo, impact stats, CTAs
 - **About** — background, focus-area cards
-- **Experience** — timeline with animated line draw
-- **Projects** — MAISON, limiter-core, FossLens, PMT Reports
-- **Skills** — animated bars + tech chip cloud
-- **Contact** — links to GitHub, limiter-core, LinkedIn, LeetCode
+- **Experience** — work history timeline
+- **Projects** — MAISON, limiter-core, Unified Desk, FossLens, PMT Reports
+- **Skills** — grouped technologies
+- **Contact** — email, LinkedIn, GitHub, limiter-core, LeetCode
+- **/case-studies/unified-desk**, **/case-studies/fosslens** — case studies
 
 ## Getting Started
 
@@ -56,13 +56,17 @@ npm run build
 
 ```
 src/
-├── assets/          # Profile photo (profile.jpeg)
+├── assets/          # Profile photo (profile.webp)
 ├── components/      # Hero, About, Projects, Skills, Experience, Contact, Footer, Navbar
 ├── data/            # All content (projects, skills, experience, links)
-├── hooks/           # useInView, useTheme
+├── hooks/           # useTheme
+├── components/case-study/  # Shared case study layout + SVG diagram primitives
+├── pages/           # Unified Desk and FossLens case studies
 └── index.css        # Tailwind directives + gradient-text utility
 
 index.html           # Meta tags, Open Graph tags, Google Fonts
+public/_redirects    # Netlify SPA fallback for /case-studies/*
+public/resume.pdf    # Resume linked from the hero (add this file)
 ```
 
 ## Customisation
