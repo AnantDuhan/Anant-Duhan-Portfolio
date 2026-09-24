@@ -7,9 +7,14 @@
   body { @apply font-sans antialiased; }
   ::selection { @apply bg-accent/20 text-gray-900; }
   .dark ::selection { @apply text-white; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #7C6AF7;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { @apply bg-dark-border2 rounded; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-dark-border2 rounded; }
 }
 
 @layer utilities {

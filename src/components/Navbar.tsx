@@ -35,7 +35,7 @@ export default function Navbar({ dark, toggle }: Props) {
           }`}
       >
         {/* Logo */}
-        <a href="#hero" className="font-bold text-lg tracking-tight text-gray-900 dark:text-white shrink-0">
+        <a href="/#hero" className="font-bold text-lg tracking-tight text-gray-900 dark:text-white shrink-0">
           Anant<span className="text-accent">.</span>
         </a>
 
@@ -85,7 +85,7 @@ export default function Navbar({ dark, toggle }: Props) {
 
           {/* Desktop CTA */}
           <motion.a
-            href="#contact"
+            href="/#contact"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="hidden md:block px-4 py-2 rounded-lg bg-accent text-white text-sm font-semibold hover:opacity-90 transition-opacity"
@@ -139,7 +139,7 @@ export default function Navbar({ dark, toggle }: Props) {
                 </motion.a>
               ))}
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setMobileOpen(false)}
                 className="mt-3 px-4 py-2.5 rounded-lg bg-accent text-white text-sm font-semibold text-center
                   hover:opacity-90 transition-opacity"

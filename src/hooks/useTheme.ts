@@ -1,15 +1,28 @@
 import { useEffect, useState } from 'react'
 
-export function useTheme() {
-  const [dark, setDark] = useState(() => {
+function initialTheme(): boolean {
+  try {
     const stored = localStorage.getItem('theme')
-    return stored ? stored === 'dark' : true
-  })
+    if (stored) return stored === 'dark'
+  } catch { /* storage unavailable */ }
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? true
+}
+
+export function useTheme() {
+  const [dark, setDark] = useState(initialTheme)
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
-    localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
 
-  return { dark, toggle: () => setDark(d => !d) }
+  // Only remember the theme once the visitor has chosen one,
+  // so everyone else keeps following their system setting.
+  const toggle = () =>
+    setDark(d => {
+      const next = !d
+      try { localStorage.setItem('theme', next ? 'dark' : 'light') } catch { /* ignore */ }
+      return next
+    })
+
+  return { dark, toggle }
 }

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from 'react-icons/fa';
-import profileImage from '../assets/profile.jpeg'
-import { STATS } from '../data'
+import profileImage from '../assets/profile.webp'
+import { STATS, RESUME_URL } from '../data'
 
 export default function Hero() {
   return (
@@ -51,7 +51,8 @@ export default function Hero() {
                   font-mono
                   font-medium
 
-                  text-emerald-400
+                  text-emerald-700
+                  dark:text-emerald-400
                   bg-emerald-400/10
                   border
                   border-emerald-400/20
@@ -66,7 +67,7 @@ export default function Hero() {
                     animate-pulse
                   "
                 />
-                Backend · Distributed Systems · Production Engineering
+                Backend · Full-stack · Automation
               </span>
             </motion.div>
 
@@ -104,12 +105,12 @@ export default function Hero() {
               <br />
 
               {/* Line 2 */}
-              <span className="gradient-text">building backend systems</span>
+              <span className="gradient-text">building platforms</span>
 
               <br />
 
               {/* Line 3 */}
-              <span className="text-gray-900 dark:text-white">that scale.</span>
+              <span className="text-gray-900 dark:text-white">teams depend on.</span>
             </motion.h1>
 
             {/* =====================================================
@@ -133,10 +134,11 @@ export default function Hero() {
                 mb-9
               "
             >
-              Software Engineer at Bosch Global Software Technologies focused on
-              backend systems, distributed systems, automation and production
-              engineering. Outside work, I build production-oriented products
-              and open-source infrastructure.
+              At Bosch Global Software Technologies I've worked on a Kafka
+              event-driven platform serving 500+ internal teams, vulnerability
+              automation covering 1,500+ GitHub repositories, and Azure AD SSO
+              for 100K+ users. Outside work, I build full-stack products and
+              open-source infrastructure.
             </motion.p>
 
             {/* =====================================================
@@ -185,7 +187,7 @@ export default function Hero() {
 
               {/* Resume */}
               <motion.a
-                href="https://drive.google.com/file/d/1tkq4P7foVfm90eXmG1P-b4SWXPAdjaJz/view?usp=sharing"
+                href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
@@ -345,6 +347,9 @@ export default function Hero() {
               <img
                 src={profileImage}
                 alt="Anant Duhan"
+                width={640}
+                height={640}
+                fetchPriority="high"
                 className="
                   w-full
                   h-full
@@ -411,7 +416,7 @@ export default function Hero() {
                   dark:text-gray-200
                 "
               >
-                Open to work
+                Open to conversations
               </span>
             </motion.div>
           </motion.div>
